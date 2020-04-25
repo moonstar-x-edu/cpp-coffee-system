@@ -69,6 +69,7 @@ void Client::displayLastTransaction() {
         return;
     }
 
+    cout << "This this is the last transaction made:" << endl;
     doDisplayTransaction(transactions[0]);
 }
 
