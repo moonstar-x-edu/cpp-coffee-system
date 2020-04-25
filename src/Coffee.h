@@ -19,6 +19,7 @@ class Coffee {
         bool hasCream;
 
     public:
+        Coffee();
         Coffee(string name, Beans beans, Size size, double basePrice);
 
         string getName();
@@ -31,6 +32,10 @@ class Coffee {
         bool getMilk();
         bool getCream();
 
+        void setName(string name);
+        void setBeans(Beans beans);
+        void setSize(Size size);
+        void setBasePrice(double basePrice);
         void addSugar();
         void addCocoa();
         void addCinnamon();

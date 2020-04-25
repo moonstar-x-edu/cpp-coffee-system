@@ -1,5 +1,17 @@
 #include "Coffee.h"
 
+Coffee::Coffee() {
+    this->name = "Coffee";
+    this->beans = Arabic;
+    this->size = Small;
+    this->basePrice = 2.5;
+    this->hasSugar = false;
+    this->hasCocoa = false;
+    this->hasCinnamon = false;
+    this->hasMilk = false;
+    this->hasCream = false;
+}
+
 Coffee::Coffee(string name, Beans beans, Size size, double basePrice) {
     this->name = name;
     this->beans = beans;
@@ -47,6 +59,22 @@ bool Coffee::getMilk() {
 
 bool Coffee::getCream() {
     return this->hasCream;
+}
+
+void Coffee::setName(string name) {
+    this->name = name;
+}
+
+void Coffee::setBeans(Beans beans) {
+    this->beans = beans;
+}
+
+void Coffee::setSize(Size size) {
+    this->size = size;
+}
+
+void Coffee::setBasePrice(double basePrice) {
+    this->basePrice = basePrice;
 }
 
 void Coffee::addSugar() {
