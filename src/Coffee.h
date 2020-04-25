@@ -3,10 +3,11 @@
 
 #include <string>
 #include "Enums.h"
+#include "IJSONizable.h"
 
 using namespace std;
 
-class Coffee {
+class Coffee : public IJSONizable {
     private:
         string name;
         Beans beans;
@@ -41,6 +42,8 @@ class Coffee {
         void addCinnamon();
         void addMilk();
         void addCream();
+
+        json toJSON() override;
 };
 
 #endif //CPP_COFFEE_SYSTEM_COFFEE_H

@@ -96,3 +96,19 @@ void Coffee::addMilk() {
 void Coffee::addCream() {
     this->hasCream = true;
 }
+
+json Coffee::toJSON() {
+    json j;
+
+    j["name"] = this->getName();
+    j["beans"] = this->getBeans();
+    j["size"] = this->getSize();
+    j["price"] = this->getPrice();
+    j["extras"]["sugar"] = this->getSugar();
+    j["extras"]["cocoa"] = this->getCocoa();
+    j["extras"]["cinnamon"] = this->getCinnamon();
+    j["extras"]["milk"] = this->getMilk();
+    j["extras"]["cream"] = this->getCream();
+
+    return j;
+}
