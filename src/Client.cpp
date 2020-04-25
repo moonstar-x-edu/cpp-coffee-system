@@ -5,17 +5,15 @@ Client::Client() {
 }
 
 void Client::init() {
-    this->displayAllTransactions();
-    cout << endl;
-    this->displayLastTransaction();
+    // TODO: Call menu and handle option selection.
 }
 
 void Client::displayMenu() {
-
+    // TODO: Implement menu display.
 }
 
 void Client::createTransaction() {
-
+    // TODO: Implement a transaction creation method.
 }
 
 void Client::displayLastTransaction() {
@@ -33,5 +31,6 @@ void Client::displayAllTransactions() {
 }
 
 void Client::doDisplayTransaction(json transactionObj) {
+    // TODO: Implement actual transaction display.
     cout << "Name: " << transactionObj["name"] << "\t id: " << transactionObj["id"] << endl;
 }
