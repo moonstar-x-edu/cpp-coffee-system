@@ -41,3 +41,9 @@ bool JSONFacade::fileExists() {
 json JSONFacade::getTransactions() {
     return this->readFromFile();
 }
+
+void JSONFacade::createTransaction(json transaction) {
+    json data = this->readFromFile();
+    data.insert(data.begin(), transaction);
+    this->writeToFile(data);
+}

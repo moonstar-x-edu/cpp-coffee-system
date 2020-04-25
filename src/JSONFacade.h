@@ -22,7 +22,7 @@ class JSONFacade {
         JSONFacade(string filename);
 
         json getTransactions();
-        void createTransaction();
+        void createTransaction(json transaction);
 };
 
 #endif //CPP_COFFEE_SYSTEM_JSONFACADE_H

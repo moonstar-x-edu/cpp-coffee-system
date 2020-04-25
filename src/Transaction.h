@@ -24,7 +24,7 @@ class Transaction : public IJSONizable {
         CoffeeDirector director;
 
         void createClient();
-        bool requestFor(string extra);
+        static bool requestFor(string extra);
         CoffeeExtras requestCoffeeDetails();
 
     public:
