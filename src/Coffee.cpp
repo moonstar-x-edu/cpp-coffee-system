@@ -112,3 +112,30 @@ json Coffee::toJSON() {
 
     return j;
 }
+
+string Coffee::toString() {
+    string extras;
+
+    if (this->hasSugar) {
+        extras += " sugar,";
+    }
+    if (this->hasCocoa) {
+        extras += " cocoa,";
+    }
+    if (this->hasCinnamon) {
+        extras += " cinnamon,";
+    }
+    if (this->hasMilk) {
+        extras += " milk,";
+    }
+    if (this->hasCream) {
+        extras += " cream,";
+    }
+
+    if (!extras.empty()) {
+        extras = " with:" + extras;
+        extras.pop_back();
+    }
+
+    return this->getSize() + " " + this->getName() + extras;
+}

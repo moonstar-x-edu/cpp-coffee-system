@@ -44,6 +44,8 @@ class Coffee : public IJSONizable {
         void addCream();
 
         json toJSON() override;
+
+        string toString();
 };
 
 #endif //CPP_COFFEE_SYSTEM_COFFEE_H
