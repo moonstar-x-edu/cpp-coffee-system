@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include "JSONFacade.h"
+#include "Transaction.h"
 
 using namespace std;
 
@@ -14,8 +15,9 @@ class Client {
     public:
         Client();
 
+        static int displayMenu();
         void init();
-        void displayMenu();
+        void handleMenu();
         void createTransaction();
         void displayLastTransaction();
         void displayAllTransactions();

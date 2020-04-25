@@ -5,19 +5,69 @@ Client::Client() {
 }
 
 void Client::init() {
-    // TODO: Call menu and handle option selection.
+    this->handleMenu();
 }
 
-void Client::displayMenu() {
-    // TODO: Implement menu display.
+int Client::displayMenu() {
+    int option;
+
+    do {
+        cout << endl;
+        cout << "--- Coffee System v0.1 ---" << endl;
+        cout << "1. Create a new transaction." << endl;
+        cout << "2. Display last transaction." << endl;
+        cout << "3. Display all transactions." << endl;
+        cout << "4. Exit" << endl;
+        cin >> option;
+
+        if (option < 1 || option > 4) {
+            cout << "Invalid option!" << endl;
+        }
+    } while (option < 1 || option > 4);
+    cout << endl;
+
+    return option;
+}
+
+void Client::handleMenu() {
+    while (true) {
+        int option = this->displayMenu();
+
+        switch (option) {
+            case 1: {
+                this->createTransaction();
+                break;
+            }
+            case 2: {
+                this->displayLastTransaction();
+                break;
+            }
+            case 3: {
+                this->displayAllTransactions();
+                break;
+            }
+            case 4: {
+                cout << "Thank you for your patronage!" << endl;
+                return;
+            }
+            default: {
+                throw "Invalid Client Option!";
+            }
+        }
+    }
 }
 
 void Client::createTransaction() {
-    // TODO: Implement a transaction creation method.
+    Transaction transaction;
 }
 
 void Client::displayLastTransaction() {
     json transactions = this->db.getTransactions();
+
+    if (transactions.empty()) {
+        cout << "There's no transactions to show! :(" << endl;
+        return;
+    }
 
     doDisplayTransaction(transactions[0]);
 }
@@ -25,6 +75,12 @@ void Client::displayLastTransaction() {
 void Client::displayAllTransactions() {
     json transactions = this->db.getTransactions();
 
+    if (transactions.empty()) {
+        cout << "There's no transactions to show! :(" << endl;
+        return;
+    }
+
+    cout << "Here's a list of all the previous transactions:" << endl;
     for (json::iterator it = transactions.begin(); it != transactions.end(); ++it) {
         doDisplayTransaction(*it);
     }
