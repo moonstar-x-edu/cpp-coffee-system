@@ -47,3 +47,5 @@ cmake-build-debug
 *.out
 *.app
 
+# Data
+data
