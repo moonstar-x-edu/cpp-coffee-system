@@ -152,7 +152,6 @@ int Transaction::requestItemToRemove() {
 }
 
 void Transaction::handleMenu() {
-    // TODO: Implement remove unavailable when cart empty.
     while (true) {
         int option = this->displayMenu();
 
@@ -168,6 +167,11 @@ void Transaction::handleMenu() {
             }
 
             case 3: {
+                if (this->items.empty()) {
+                    cout << "There are no items in the cart to remove." << endl;
+                    break;
+                }
+
                 this->displayItems();
                 this->removeItem(this->requestItemToRemove() - 1);
                 break;
@@ -227,7 +231,10 @@ void Transaction::addItem() {
 }
 
 void Transaction::displayItems() {
-    // TODO: Implement empty cart message.
+    if (this->items.empty()) {
+        cout << "The cart is empty." << endl;
+        return;
+    }
 
     cout << "Current items in cart:" << endl;
     for (unsigned long i = 0; i < this->items.size(); i++) {
