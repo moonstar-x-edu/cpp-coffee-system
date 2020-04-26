@@ -4,6 +4,7 @@
 #include <iostream>
 #include "JSONFacade.h"
 #include "Transaction.h"
+#include "utils.h"
 
 using namespace std;
 

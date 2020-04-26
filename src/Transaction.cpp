@@ -31,7 +31,7 @@ int Transaction::displayMenu() {
         cout << "3. Remove an item from the cart." << endl;
         cout << "4. Complete the transaction." << endl;
         cout << "5. Dismiss the transaction." << endl;
-        cin >> option;
+        option = safeIntCin();
 
         if (option < 1 || option > 5) {
             cout << "Invalid option!" << endl;
@@ -52,7 +52,7 @@ int Transaction::displayCoffeeOptions() {
         cout << "2. Latte" << endl;
         cout << "3. Mocha" << endl;
         cout << "4. Cappuccino" << endl;
-        cin >> option;
+        option = safeIntCin();
 
         if (option < 1 || option > 4) {
             cout << "Invalid option!" << endl;
@@ -73,7 +73,7 @@ int Transaction::displayCoffeeSizes() {
         cout << "2. Medium" << endl;
         cout << "3. Large" << endl;
         cout << "4. Extra Large" << endl;
-        cin >> option;
+        option = safeIntCin();
 
         if (option < 1 || option > 4) {
             cout << "Invalid option!" << endl;
@@ -92,33 +92,10 @@ void Transaction::createClient() {
 
     cout << "Insert client's name: ";
     cin >> clientName;
-
-    do {
-        cout << "Insert client's phone number: ";
-        cin >> clientPhone;
-
-        if (!cin.fail()) {
-            break;
-        }
-
-        cin.clear();
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
-        cout << "Invalid phone number." << endl;
-    } while (true);
-
-    do {
-        cout << "Insert client's ID: ";
-        cin >> clientID;
-
-        if (!cin.fail()) {
-            break;
-        }
-
-        cin.clear();
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
-        cout << "Invalid phone number." << endl;
-    } while (true);
-
+    cout << "Insert client's phone number: ";
+    clientPhone = safeLongCin();
+    cout << "Insert client's ID: ";
+    clientID = safeLongCin();
     cout << "Insert client's home address: ";
     cin >> clientAddress;
 
@@ -163,7 +140,7 @@ int Transaction::requestItemToRemove() {
     do {
         cout << endl;
         cout << "Enter item number to remove: ";
-        cin >> index;
+        index = safeIntCin();
 
         if (index < 1 || index > this->items.size()) {
             cout << "Invalid item number." << endl;
@@ -175,6 +152,7 @@ int Transaction::requestItemToRemove() {
 }
 
 void Transaction::handleMenu() {
+    // TODO: Implement remove unavailable when cart empty.
     while (true) {
         int option = this->displayMenu();
 
@@ -249,6 +227,8 @@ void Transaction::addItem() {
 }
 
 void Transaction::displayItems() {
+    // TODO: Implement empty cart message.
+
     cout << "Current items in cart:" << endl;
     for (unsigned long i = 0; i < this->items.size(); i++) {
         cout << i + 1 << ": " << this->items[i].toString() << endl;

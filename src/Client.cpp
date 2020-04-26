@@ -14,7 +14,7 @@ int Client::displayMenu() {
         cout << "2. Display last transaction." << endl;
         cout << "3. Display all transactions." << endl;
         cout << "4. Exit" << endl;
-        cin >> option;
+        option = safeIntCin();
 
         if (option < 1 || option > 4) {
             cout << "Invalid option!" << endl;
