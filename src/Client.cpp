@@ -26,8 +26,17 @@ int Client::displayMenu() {
 }
 
 void Client::doDisplayTransaction(json transactionObj) {
-    // TODO: Implement actual transaction display.
-    cout << "Name: " << transactionObj["name"] << "\t id: " << transactionObj["id"] << endl;
+    cout << "Transaction date: " << transactionObj["date"].get<string>() << endl;
+    cout << "Client: " << transactionObj["client"]["name"].get<string>() << " ID: " << transactionObj["client"]["id"] << endl;
+    cout << "Phone: " << transactionObj["client"]["phone"] << " Address: " << transactionObj["client"]["address"].get<string>() << endl << endl;
+
+    cout << "Items purchased:" << endl;
+    for (auto& item : transactionObj["items"]) {
+        cout << item["size"].get<string>() << " " << item["name"].get<string>() << item["extrasString"].get<string>() << " Price: $" << item["price"] << endl;
+    }
+    cout << endl;
+
+    cout << "Total: $" << transactionObj["amount"] << endl;
 }
 
 void Client::handleMenu() {
@@ -76,6 +85,7 @@ void Client::displayLastTransaction() {
 
     cout << "This this is the last transaction made:" << endl;
     doDisplayTransaction(transactions[0]);
+    cout << endl;
 }
 
 void Client::displayAllTransactions() {
@@ -87,8 +97,10 @@ void Client::displayAllTransactions() {
     }
 
     cout << "Here's a list of all the previous transactions:" << endl;
-    for (json::iterator it = transactions.begin(); it != transactions.end(); ++it) {
-        doDisplayTransaction(*it);
+    for (auto& item : transactions) {
+        cout << "_________________" << endl;
+        doDisplayTransaction(item);
+        cout << endl;
     }
 }
 
