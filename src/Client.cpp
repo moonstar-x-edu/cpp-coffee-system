@@ -32,11 +32,11 @@ void Client::doDisplayTransaction(json transactionObj) {
 
     cout << "Items purchased:" << endl;
     for (auto& item : transactionObj["items"]) {
-        cout << item["size"].get<string>() << " " << item["name"].get<string>() << item["extrasString"].get<string>() << " Price: $" << item["price"] << endl;
+        cout << item["size"].get<string>() << " " << item["name"].get<string>() << item["extrasString"].get<string>() << " Price: $" << item["price"].get<string>() << endl;
     }
     cout << endl;
 
-    cout << "Total: $" << transactionObj["amount"] << endl;
+    cout << "Total: $" << transactionObj["amount"].get<string>() << endl;
 }
 
 void Client::handleMenu() {

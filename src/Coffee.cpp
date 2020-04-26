@@ -1,7 +1,5 @@
 #include "Coffee.h"
 
-// TODO: price max 2 decimals
-
 Coffee::Coffee() {
     this->name = "Coffee";
     this->beans = Arabic;
@@ -149,7 +147,7 @@ json Coffee::toJSON() {
     j["name"] = this->getName();
     j["beans"] = this->getBeans();
     j["size"] = this->getSize();
-    j["price"] = this->getPrice();
+    j["price"] = formatDoubleTwoDecimal(this->getPrice());
     j["extras"]["sugar"] = this->getSugar();
     j["extras"]["cocoa"] = this->getCocoa();
     j["extras"]["cinnamon"] = this->getCinnamon();

@@ -31,3 +31,9 @@ long safeLongCin() {
     } while (true);
     return value;
 }
+
+string formatDoubleTwoDecimal(double num) {
+    ostringstream numStream;
+    numStream << fixed << setprecision(2) << num;
+    return numStream.str();
+}

@@ -286,7 +286,7 @@ json Transaction::toJSON() {
 
     j["client"] = this->client->toJSON();
     j["items"] = jsonItems;
-    j["amount"] = amount;
+    j["amount"] = formatDoubleTwoDecimal(this->amount);
     j["date"] = asctime(localtime(&this->timestamp));
 
     return j;
