@@ -12,6 +12,7 @@ using json = nlohmann::json;
 class JSONFacade {
     private:
         string filename;
+
         json readFromFile();
         void writeToFile(json j);
         void createFile();
