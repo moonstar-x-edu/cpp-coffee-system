@@ -12,8 +12,6 @@
 
 using namespace std;
 
-using CoffeeExtras = map<string, bool>;
-
 class Transaction : public IJSONizable {
     private:
         ShopClient* client;
@@ -23,20 +21,25 @@ class Transaction : public IJSONizable {
 
         CoffeeDirector director;
 
-        void createClient();
         static bool requestFor(string extra);
-        CoffeeExtras requestCoffeeDetails();
+        static int displayMenu();
+        static int displayCoffeeOptions();
+        static int displayCoffeeSizes();
+
+        void createClient();
+        CoffeeExtras requestCoffeeExtras();
+        Size requestCoffeeSize();
+        int requestItemToRemove();
+
+        void handleMenu();
+        void addItem();
+        void displayItems();
+        void removeItem(int index);
+        void completeTransaction();
+        void dismissTransaction();
 
     public:
         Transaction();
-
-        void displayMenu();
-        void handleMenu();
-        void displayItems();
-        void addItem();
-        void removeItem();
-        void completeTransaction();
-        void dismissTransaction();
 
         json toJSON() override;
 };
