@@ -21,6 +21,7 @@ class Transaction : public IJSONizable {
         time_t timestamp;
 
         CoffeeDirector director;
+        bool successful;
 
         static bool requestFor(string extra);
         static int displayMenu();
@@ -42,6 +43,7 @@ class Transaction : public IJSONizable {
     public:
         Transaction();
 
+        bool wasSuccessful();
         json toJSON() override;
 };
 

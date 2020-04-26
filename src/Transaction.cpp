@@ -1,6 +1,10 @@
 #include "Transaction.h"
 
 Transaction::Transaction() {
+    this->successful = false;
+    this->amount = 0;
+    this->timestamp = time(nullptr);
+
     this->createClient();
     this->handleMenu();
 }
@@ -178,6 +182,11 @@ void Transaction::handleMenu() {
             }
 
             case 4: {
+                if (this->items.empty()) {
+                    cout << "Cannot complete transaction with an empty cart." << endl;
+                    break;
+                }
+
                 this->completeTransaction();
                 return;
             }
@@ -249,11 +258,22 @@ void Transaction::removeItem(int index) {
 }
 
 void Transaction::completeTransaction() {
-    // TODO: Implement transaction complete.
+    for (unsigned long i = 0; i < this->items.size(); i++) {
+        this->amount += this->items[i].getPrice();
+    }
+    this->successful = true;
+
+    cout << "Transaction complete." << endl;
 }
 
 void Transaction::dismissTransaction() {
-    // TODO: Implement transaction dismiss.
+    this->successful = false;
+
+    cout << "Cancelled transaction." << endl;
+}
+
+bool Transaction::wasSuccessful() {
+    return this->successful;
 }
 
 json Transaction::toJSON() {
