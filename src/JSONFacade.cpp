@@ -25,7 +25,7 @@ json JSONFacade::readFromFile() {
 
 void JSONFacade::writeToFile(json j) {
     ofstream file(this->filename);
-    file << setw(4) << j << endl;
+    file << setw(2) << j << endl;
 }
 
 void JSONFacade::createFile() {
