@@ -1,9 +1,7 @@
 #include "JSONFacade.h"
 
-//TODO: make sure that even if no data folder is in it works.
-
 JSONFacade::JSONFacade() {
-    this->filename = "../data/transactions.json";
+    this->filename = "../transactions.json";
 
     if (!this->fileExists()) {
         this->createFile();
