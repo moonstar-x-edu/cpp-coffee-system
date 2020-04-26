@@ -24,5 +24,6 @@ enum Size {
 
 string getBeansString(Beans beans);
 string getSizeString(Size size);
+float getSizePriceMultiplier(Size size);
 
 #endif //CPP_COFFEE_SYSTEM_ENUMS_H

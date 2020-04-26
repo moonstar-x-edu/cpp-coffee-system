@@ -37,8 +37,25 @@ string Coffee::getSize() {
 }
 
 double Coffee::getPrice() {
-    // TODO: Implement price calculation based on extras and size.
-    return this->basePrice;
+    double price = this->basePrice * getSizePriceMultiplier(this->size);
+
+    if (this->hasSugar) {
+        price += SUGAR_PRICE;
+    }
+    if (this->hasCocoa) {
+        price += COCOA_PRICE;
+    }
+    if (this->hasCinnamon) {
+        price += CINNAMON_PRICE;
+    }
+    if (this->hasMilk) {
+        price += MILK_PRICE;
+    }
+    if (this->hasCream) {
+        price += CREAM_PRICE;
+    }
+
+    return price;
 }
 
 bool Coffee::getSugar() {

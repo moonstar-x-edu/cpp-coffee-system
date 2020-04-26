@@ -7,6 +7,12 @@
 
 using namespace std;
 
+const float SUGAR_PRICE = 0.25;
+const float COCOA_PRICE = 0.30;
+const float CINNAMON_PRICE = 0.30;
+const float MILK_PRICE = 0.80;
+const float CREAM_PRICE = 1.0;
+
 class Coffee : public IJSONizable {
     private:
         string name;

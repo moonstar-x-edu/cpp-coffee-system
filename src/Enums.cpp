@@ -27,3 +27,18 @@ string getSizeString(Size size) {
             throw "Invalid Size enum value!";
     }
 }
+
+float getSizePriceMultiplier(Size size) {
+    switch (size) {
+        case Small:
+            return 0.5;
+        case Medium:
+            return 1;
+        case Large:
+            return 1.5;
+        case ExtraLarge:
+            return 2;
+        default:
+            throw "Invalid Size enum value!";
+    }
+}
