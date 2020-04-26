@@ -268,6 +268,7 @@ void Transaction::completeTransaction() {
 
 void Transaction::dismissTransaction() {
     this->successful = false;
+    delete this->client;
 
     cout << "Cancelled transaction." << endl;
 }
