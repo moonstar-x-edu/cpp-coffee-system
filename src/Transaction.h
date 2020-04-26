@@ -1,8 +1,6 @@
 #ifndef CPP_COFFEE_SYSTEM_TRANSACTION_H
 #define CPP_COFFEE_SYSTEM_TRANSACTION_H
 
-// TODO: remove new line from date
-
 #include <iostream>
 #include <vector>
 #include <ctime>

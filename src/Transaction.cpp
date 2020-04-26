@@ -284,10 +284,13 @@ json Transaction::toJSON() {
         jsonItems.push_back(this->items[i].toJSON());
     }
 
+    string dateString = asctime(localtime(&this->timestamp));
+    dateString.erase(dateString.length()-1);
+
     j["client"] = this->client->toJSON();
     j["items"] = jsonItems;
     j["amount"] = formatDoubleTwoDecimal(this->amount);
-    j["date"] = asctime(localtime(&this->timestamp));
+    j["date"] = dateString;
 
     return j;
 }
