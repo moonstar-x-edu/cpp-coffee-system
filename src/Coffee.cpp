@@ -1,5 +1,7 @@
 #include "Coffee.h"
 
+// TODO: price max 2 decimals
+
 Coffee::Coffee() {
     this->name = "Coffee";
     this->beans = Arabic;
@@ -22,6 +24,33 @@ Coffee::Coffee(string name, Beans beans, Size size, double basePrice) {
     this->hasCinnamon = false;
     this->hasMilk = false;
     this->hasCream = false;
+}
+
+string Coffee::stringifyExtras() {
+    string extras;
+
+    if (this->hasSugar) {
+        extras += " sugar,";
+    }
+    if (this->hasCocoa) {
+        extras += " cocoa,";
+    }
+    if (this->hasCinnamon) {
+        extras += " cinnamon,";
+    }
+    if (this->hasMilk) {
+        extras += " milk,";
+    }
+    if (this->hasCream) {
+        extras += " cream,";
+    }
+
+    if (!extras.empty()) {
+        extras = " with:" + extras;
+        extras.pop_back();
+    }
+
+    return extras;
 }
 
 string Coffee::getName() {
@@ -126,33 +155,11 @@ json Coffee::toJSON() {
     j["extras"]["cinnamon"] = this->getCinnamon();
     j["extras"]["milk"] = this->getMilk();
     j["extras"]["cream"] = this->getCream();
+    j["extrasString"] = this->stringifyExtras();
 
     return j;
 }
 
 string Coffee::toString() {
-    string extras;
-
-    if (this->hasSugar) {
-        extras += " sugar,";
-    }
-    if (this->hasCocoa) {
-        extras += " cocoa,";
-    }
-    if (this->hasCinnamon) {
-        extras += " cinnamon,";
-    }
-    if (this->hasMilk) {
-        extras += " milk,";
-    }
-    if (this->hasCream) {
-        extras += " cream,";
-    }
-
-    if (!extras.empty()) {
-        extras = " with:" + extras;
-        extras.pop_back();
-    }
-
-    return this->getSize() + " " + this->getName() + extras;
+    return this->getSize() + " " + this->getName() + this->stringifyExtras();
 }

@@ -1,6 +1,9 @@
 #ifndef CPP_COFFEE_SYSTEM_TRANSACTION_H
 #define CPP_COFFEE_SYSTEM_TRANSACTION_H
 
+// TODO: remove new line from date
+// TODO: price up to 2 decimal
+
 #include <iostream>
 #include <vector>
 #include <ctime>

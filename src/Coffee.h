@@ -25,6 +25,8 @@ class Coffee : public IJSONizable {
         bool hasMilk;
         bool hasCream;
 
+        string stringifyExtras();
+
     public:
         Coffee();
         Coffee(string name, Beans beans, Size size, double basePrice);
