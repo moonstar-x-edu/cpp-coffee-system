@@ -1,7 +1,5 @@
 #include "CoffeeDirector.h"
 
-// TODO: Implement how extras are added to the coffee.
-
 CoffeeDirector::CoffeeDirector() {
 
 }
