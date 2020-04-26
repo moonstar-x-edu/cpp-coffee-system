@@ -59,8 +59,11 @@ void Client::handleMenu() {
 }
 
 void Client::createTransaction() {
-    // TODO: Implement transaction creation.
     Transaction transaction;
+
+    if (transaction.wasSuccessful()) {
+        this->db.createTransaction(transaction.toJSON());
+    }
 }
 
 void Client::displayLastTransaction() {
