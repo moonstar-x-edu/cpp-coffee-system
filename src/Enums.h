@@ -2,9 +2,12 @@
 #define CPP_COFFEE_SYSTEM_ENUMS_H
 
 #include <string>
+#include <map>
 #include <exception>
 
 using namespace std;
+
+using CoffeeExtras = map<string, bool>;
 
 enum Beans {
     Arabic,

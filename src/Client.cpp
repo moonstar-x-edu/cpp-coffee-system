@@ -58,6 +58,7 @@ void Client::handleMenu() {
 }
 
 void Client::createTransaction() {
+    // TODO: Implement transaction creation.
     Transaction transaction;
 }
 
