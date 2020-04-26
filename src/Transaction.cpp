@@ -85,7 +85,6 @@ int Transaction::displayCoffeeSizes() {
 }
 
 void Transaction::createClient() {
-    // TODO: handle invalid data types.
     string clientName;
     long clientPhone;
     long clientID;
@@ -93,10 +92,33 @@ void Transaction::createClient() {
 
     cout << "Insert client's name: ";
     cin >> clientName;
-    cout << "Insert client's phone number: ";
-    cin >> clientPhone;
-    cout << "Insert client's ID: ";
-    cin >> clientID;
+
+    do {
+        cout << "Insert client's phone number: ";
+        cin >> clientPhone;
+
+        if (!cin.fail()) {
+            break;
+        }
+
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        cout << "Invalid phone number." << endl;
+    } while (true);
+
+    do {
+        cout << "Insert client's ID: ";
+        cin >> clientID;
+
+        if (!cin.fail()) {
+            break;
+        }
+
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        cout << "Invalid phone number." << endl;
+    } while (true);
+
     cout << "Insert client's home address: ";
     cin >> clientAddress;
 
