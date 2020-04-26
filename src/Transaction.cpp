@@ -162,6 +162,7 @@ void Transaction::handleMenu() {
         switch (option) {
             case 1: {
                 this->addItem();
+                cout << "Item added to cart." << endl;
                 break;
             }
 
@@ -178,6 +179,7 @@ void Transaction::handleMenu() {
 
                 this->displayItems();
                 this->removeItem(this->requestItemToRemove() - 1);
+                cout << "Item removed from cart." << endl;
                 break;
             }
 
@@ -236,7 +238,6 @@ void Transaction::addItem() {
     }
 
     this->items.push_back(coffee);
-    cout << "Item added to cart." << endl;
 }
 
 void Transaction::displayItems() {
@@ -254,7 +255,6 @@ void Transaction::displayItems() {
 
 void Transaction::removeItem(int index) {
     this->items.erase(this->items.begin() + index);
-    cout << "Item removed from cart." << endl;
 }
 
 void Transaction::completeTransaction() {
