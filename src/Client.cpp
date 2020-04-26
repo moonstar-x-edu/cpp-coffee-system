@@ -4,10 +4,6 @@ Client::Client() {
 
 }
 
-void Client::init() {
-    this->handleMenu();
-}
-
 int Client::displayMenu() {
     int option;
 
@@ -27,6 +23,11 @@ int Client::displayMenu() {
     cout << endl;
 
     return option;
+}
+
+void Client::doDisplayTransaction(json transactionObj) {
+    // TODO: Implement actual transaction display.
+    cout << "Name: " << transactionObj["name"] << "\t id: " << transactionObj["id"] << endl;
 }
 
 void Client::handleMenu() {
@@ -88,7 +89,6 @@ void Client::displayAllTransactions() {
     }
 }
 
-void Client::doDisplayTransaction(json transactionObj) {
-    // TODO: Implement actual transaction display.
-    cout << "Name: " << transactionObj["name"] << "\t id: " << transactionObj["id"] << endl;
+void Client::init() {
+    this->handleMenu();
 }
